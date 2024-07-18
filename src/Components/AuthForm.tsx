@@ -5,12 +5,13 @@ import Input from './Inputs/Input'
 import Button from "./Button/Button"
 import AuthSocialButton from '../Components/Button/AuthSocialButton'
 import { BsGithub,BsGoogle } from 'react-icons/bs'
+import axios from 'axios'
 
 type Variant = 'LOGIN' | 'REGISTER'
 
 function AuthForm() {
     const [variant, setVarient] = useState<Variant>('LOGIN')
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const { register, handleSubmit, formState: {
         errors
     } } = useForm<FieldValues>({
@@ -30,13 +31,16 @@ function AuthForm() {
     },[variant])
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true)
+        if (variant == 'REGISTER') {
+            //
+            axios.post('/api/register', data)
+            alert('Registration successful');
+        }
         if (variant == 'LOGIN') {
             //
 
         }
-        if (variant == 'REGISTER') {
-            //
-        }
+       
 
     }
     const socialAction = (action: string) => {
@@ -50,13 +54,13 @@ function AuthForm() {
                 <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
                     {variant == 'REGISTER' && (<Input id='name' label='Name' register={register} errors={errors} disabled={isLoading} />
                     )}
-                    <Input id='email ' label='Email Address' register={register} errors={errors} disabled={isLoading} />
+                    <Input id='email' label='Email Address' register={register} errors={errors} disabled={isLoading} />
                     <Input id='password' label='Password' register={register} errors={errors} disabled={isLoading} />
                     <div>
                         <Button
                             disabled={isLoading}
                             fullWidth
-                            type='submit'
+                            type="submit"
                         >{variant == 'LOGIN' ? 'Sign in' : 'Register'}</Button>
                     </div>
 
