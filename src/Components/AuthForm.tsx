@@ -34,7 +34,7 @@ function AuthForm() {
         if (variant == 'REGISTER') {
             //
             axios.post('/api/register', data)
-            alert('Registration successful');
+           
         }
         if (variant == 'LOGIN') {
             //
