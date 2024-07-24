@@ -19,7 +19,7 @@ function AuthForm() {
     const router = useRouter();
     useEffect(() => {
         if (session?.status === 'authenticated') {
-            router.push('/user')
+            router.push('/users')
         }
     }, [session?.status, router])
     const { register, handleSubmit, formState: {
@@ -44,9 +44,6 @@ function AuthForm() {
         if (variant == 'REGISTER') {
             //
             axios.post('/api/register', data)
-                .then(() => signIn('credentials', data
-
-                ))
                 .then(() => signIn('credentials', data))
                 .catch(() => toast.error('Something went wrong'))
                 .finally(() => setIsLoading(false))
