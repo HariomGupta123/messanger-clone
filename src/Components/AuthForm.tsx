@@ -19,7 +19,7 @@ function AuthForm() {
     const router = useRouter();
     useEffect(() => {
         if (session?.status === 'authenticated') {
-            router.push('/users')
+            router.push('/')
         }
     }, [session?.status, router])
     const { register, handleSubmit, formState: {

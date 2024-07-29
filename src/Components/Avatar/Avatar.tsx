@@ -17,12 +17,13 @@ export default function Avatar({user}:AvatarProps) {
         <Image alt="Avatar"
         src={user?.image || "/emptyimage.jpeg"}
        fill
+       
         
         />
       
     </div>
-    <span className="absolute block rounded-full bg-green-500 ring-2 ring-white top-0
-    right-0
+    <span className="absolute block rounded-full bg-green-500 ring-2 ring-white bottom-14
+    left-11
     h-2
     w-2
     md:h-3
