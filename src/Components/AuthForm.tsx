@@ -6,7 +6,7 @@ import Button from "./Button/Button"
 import AuthSocialButton from '../Components/Button/AuthSocialButton'
 import { BsGithub, BsGoogle } from 'react-icons/bs'
 import axios from 'axios'
-import toast from 'react-hot-toast/headless'
+import toast from 'react-hot-toast'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 

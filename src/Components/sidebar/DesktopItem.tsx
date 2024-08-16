@@ -22,7 +22,7 @@ const DesktopItem=({label,href,icon:Icon,onClick,active}:DesktopItemProps)=> {
       font-semibold
       text-gray-500
       hover:text-black
-      hover:bg-gary-100`,
+      hover:bg-gray-100`,
       active && " bg-gray-100 text-black"
        )}>
       <Icon className="h-6 w-6 shrink-0"/>

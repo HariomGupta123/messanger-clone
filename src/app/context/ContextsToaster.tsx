@@ -5,7 +5,6 @@ export default function ContextsToaster() {
   return (
     <div>
     <Toaster/>
-      
     </div>
   )
 }
