@@ -53,7 +53,7 @@ model Account {
 model Conversation {
   id              String    @id @default(auto()) @map("_id") @db.ObjectId
   createdAt       DateTime  @default(now())
-  lastMessagesIds DateTime  @default(now())
+  lastMessagesAt DateTime  @default(now())
   name            String?
   isGroup         Boolean?
   messagesIds     String[]  @db.ObjectId

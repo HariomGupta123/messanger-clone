@@ -19,12 +19,13 @@ const ConversationBox:React.FC<ConversationBoxProps>=({data,selected})=>{
     const otherUser=useOtherUser(data)
 
     const handleClick=useCallback(()=>{
-        router.push(`/conversation/${data.id}`)
+        router.push(`/conversations/${data.id}`)
 
     },[data.id,router]);
 
     const lastMessage=useMemo(()=>{
         const messages=data.messages ||[];
+        console.log(data.messages)
         return messages[messages.length -1];
     },[data.messages]);
 
@@ -73,9 +74,10 @@ const ConversationBox:React.FC<ConversationBoxProps>=({data,selected})=>{
                     <p className="text-md font-medium text-gray-900">
                         {data.name || otherUser.name}
                     </p>
-                    {lastMessage.createdAt && (<p className="text-xs text-gray-400 font-light">
+                   {lastMessage?.createdAt && (<p className="text-xs text-gray-400 font-light">
                         {format(new Date(lastMessage.createdAt),'p')}
-                    </p>)}
+                    </p>)} 
+                   
 
                 </div>
                 <p className={clsx(`truncate

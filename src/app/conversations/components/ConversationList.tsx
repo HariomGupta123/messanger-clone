@@ -15,7 +15,7 @@ const ConversationList: React.FC<conversationsListProps> = ({ intialItems }) => 
   const { isOpen,conversationId } = useConversation()
 
   return (
-    <aside className={clsx(`fixed inset-y-0 pb-20 lg:pb-0
+    <aside className={clsx(`fixed inset-y-0 pb-20 lg:pb-0 border-r-[1px]
       lg:left-20
       lg:w-80
       lg:block

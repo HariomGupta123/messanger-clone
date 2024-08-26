@@ -22,8 +22,8 @@ export default function Avatar({user}:AvatarProps) {
         />
       
     </div>
-    <span className="absolute block rounded-full bg-green-500 ring-2 ring-white bottom-12
-    left-11
+    <span className=" relative left-8 block rounded-full bg-green-500 ring-2 ring-white bottom-12
+    
     h-2
     w-2
     md:h-3
