@@ -85,7 +85,6 @@ const ConversationBox:React.FC<ConversationBoxProps>=({data,selected})=>{
                     `,hasSeen? 'text-gray-500':'text-black font-medium')}>
                     {lastMessageText}
                 </p>
-
             </div>
 
           </div>

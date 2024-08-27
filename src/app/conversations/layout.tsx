@@ -5,6 +5,7 @@ import getConversations from "../actions/getConversations";
 
 export default async function ConversationsLayout({children}:{children:React.ReactNode}){
     const conversations= await getConversations()
+    console.log(conversations)
     return(
         //@error handleing
         <SideBar>

@@ -23,7 +23,7 @@ const useRoutes=()=>{
     },
     {
         label:'Logout',
-        href:'#',
+        href:'http://localhost:3000/',
         onClick:()=>signOut(),
         icon:HiArrowLeftOnRectangle
     }
