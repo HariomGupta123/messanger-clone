@@ -6,7 +6,6 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { Container } from "postcss";
 
 interface MessagesBoxProps{
   data:FullMessageType;
@@ -49,6 +48,10 @@ const MessagesBox:React.FC<MessagesBoxProps> = ({data,isLast}) => {
           {data.image ? (<Image alt="Image" height="288" width="288" src={data.image} className="object-cover cursor-pointer hover:scale-110 transition translate" />):(<div>{data.body}</div>)}
 
         </div>
+        {isLast && isOwn && seenList.length > 0 &&( <div className="text-xs font-light text-gray-500">
+          {`Seen by ${seenList}`}
+
+        </div>)}
 
       </div>
     </div>

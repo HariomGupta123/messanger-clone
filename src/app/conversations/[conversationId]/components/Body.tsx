@@ -2,8 +2,9 @@
 
 import useConversation from "@/app/hooks/useConversation"
 import { FullMessageType } from "@/app/types"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import MessagesBox from "./MessagesBox"
+import axios from "axios"
 
 interface BodyProps{
   initialMessages:FullMessageType[]
@@ -11,8 +12,11 @@ interface BodyProps{
 
 const Body: React.FC<BodyProps> = ({ initialMessages }) => {
   const [messages,setMessages]=useState(initialMessages);
-  const bottomRef=useRef<HTMLDivElement>(null)
-  const {conversationId}=useConversation()
+  const bottomRef=useRef<HTMLDivElement>(null);
+  const {conversationId}=useConversation();
+   useEffect(()=>{
+    axios.post(`/api/conversations/${conversationId}/seen`)
+   },[conversationId])
   return (
     <div className='h-full flex-1 overflow-y-auto'>
       {messages.map((message,i)=>(
