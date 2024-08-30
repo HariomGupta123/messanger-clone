@@ -1,6 +1,8 @@
 "use client"
 
+import Button from "@/Components/Button/Button";
 import Input from "@/Components/Inputs/Input";
+import Select from "@/Components/Inputs/Select";
 import Model from "@/Components/Model";
 import { User } from "@prisma/client";
 import axios from "axios";
@@ -59,7 +61,7 @@ const GroupChatModel: React.FC<GroupChatModelProps> = ({ isOpen, onClose, users 
                         </p>
                         <div className="mt-10 text-sm flex-col gap-y-8">
                             <Input register={register} label="Name" id="name" required errors={errors}/>
-                            <Select 
+                            <Select
                             disabled={isLoading}
                             label="Members"
                             options={users.map((user)=>({
@@ -67,10 +69,16 @@ const GroupChatModel: React.FC<GroupChatModelProps> = ({ isOpen, onClose, users 
                                 label:user.name
                             }))}
                             onChange={(value)=>setValue('members',value,{shouldValidate:true})}
+                            value={members}
                             />
 
                         </div>
                     </div>
+                </div>
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                    <Button disabled={isLoading} onClick={onClose} type="button" secondary> Cancel</Button>
+                    <Button disabled={isLoading} type="submit">Create</Button>
+
                 </div>
 
             </form>
