@@ -25,7 +25,7 @@ const Form = () => {
     <div className=' py-4 px-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full mb-12'>
       <CldUploadButton 
       options={{maxFiles:1}}
-        onUploadAdded={handleUplaod}
+        onSuccess={handleUplaod}
         uploadPreset='tir5sico'
        
       ><HiPhoto size={30} className='text-sky-500 relative' />

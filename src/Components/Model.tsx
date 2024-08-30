@@ -73,7 +73,9 @@ const Model: React.FC<ModelProps> = ({ isOpen, onClose, children }) => {
                         sm:block
                         z-10
                         ">
-                                    <button type="button" className="
+                         <button 
+                            type="button"
+                             className="
                             rounded-md
                             bg-white
                             text-gray-500

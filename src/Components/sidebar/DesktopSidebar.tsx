@@ -4,15 +4,22 @@ import React, { useState } from 'react'
 import DesktopItem from './DesktopItem';
 import { User } from '@prisma/client';
 import Avatar from '../Avatar/Avatar';
+import SettingsModel from './SettingsModel';
 interface DesktopSidebarProps{
   currentUser: User
 }
 
 export default function DesktopSidebar({currentUser}:DesktopSidebarProps) {
   const routes=useRoutes();
-  const [isOpen,setOpen]=useState(false)
+  const [isOpen,setIsOpen]=useState(false)
   console.log({currentUser})
   return (
+    <>
+    <SettingsModel
+     isOpen={isOpen}
+      currentUser={currentUser}
+      onClose={()=>setIsOpen(false)}
+      />
     <div className='
     hidden 
     lg:fixed
@@ -45,11 +52,13 @@ export default function DesktopSidebar({currentUser}:DesktopSidebarProps) {
 
      </nav>
      <nav className='mt-4 flex flex-col justify-between items-center'>
-      <div className='cursor-pointer hover:opacity-75 transition'>
+      <div  onClick={()=>setIsOpen(true)}
+      className='cursor-pointer hover:opacity-75 transition'>
         <Avatar user={currentUser}/>
       </div>
 
      </nav>
     </div>
+    </>
   )
 }
