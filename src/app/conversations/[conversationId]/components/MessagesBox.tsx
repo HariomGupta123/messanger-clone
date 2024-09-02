@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useState } from "react";
+import ImageModel from "./ImageModel";
 
 interface MessagesBoxProps{
   data:FullMessageType;
@@ -14,6 +16,7 @@ interface MessagesBoxProps{
 
 const MessagesBox:React.FC<MessagesBoxProps> = ({data,isLast}) => {
   const session=useSession();
+  const [imageModelOpen,setImageModelOpen]=useState(false)
   const isOwn=session?.data?.user?.email === data?.sender?.email
   const seenList=(data.seen || [])
   .filter((user)=>user.email !== data?.sender?.email)
@@ -45,7 +48,9 @@ const MessagesBox:React.FC<MessagesBoxProps> = ({data,isLast}) => {
 
         </div>
         <div className={message}>
-          {data.image ? (<Image alt="Image" height="288" width="288" src={data.image} className="object-cover cursor-pointer hover:scale-110 transition translate" />):(<div>{data.body}</div>)}
+          <ImageModel src={data.image} isOpen={imageModelOpen} onClose={()=>setImageModelOpen(false)}/>
+          
+          {data.image ? (<Image alt="Image" height="288" width="288" src={data.image} onClick={()=>setImageModelOpen(true)} className="object-cover cursor-pointer hover:scale-110 transition translate" />):(<div>{data.body}</div>)}
 
         </div>
         {isLast && isOwn && seenList.length > 0 &&( <div className="text-xs font-light text-gray-500">

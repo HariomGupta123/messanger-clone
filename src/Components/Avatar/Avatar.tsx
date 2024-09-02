@@ -8,17 +8,20 @@ interface AvatarProps{
 export default function Avatar({user}:AvatarProps) {
   return (
     <div>
-    <div className="relative inline-block rounded-full overflow-hidden
+    <div className="
+    relative 
+    inline-block 
+    rounded-full 
+    overflow-hidden
     h-9
     w-9
     md:h-11
     md:w-11
     ">
-        <Image alt="Avatar"
+        <Image 
+        alt="Avatar"
+        fill
         src={user?.image || "/emptyimage.jpeg"}
-       fill
-       
-        
         />
       
     </div>
