@@ -27,6 +27,7 @@ const ConversationBox:React.FC<ConversationBoxProps>=({data,selected})=>{
     const lastMessage=useMemo(()=>{
         const messages=data.messages ||[];
         console.log(data.messages)
+
         return messages[messages.length -1];
     },[data.messages]);
 
