@@ -21,7 +21,8 @@ function AuthForm() {
         if (session?.status === 'authenticated') {
             router.push('/')
         }
-    }, [session?.status, router])
+    }, [session?.status, router]);
+
     const { register, handleSubmit, formState: {
         errors
     } } = useForm<FieldValues>({
@@ -38,7 +39,8 @@ function AuthForm() {
         } else {
             setVarient('LOGIN')
         }
-    }, [variant])
+    }, [variant]);
+
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true)
         if (variant == 'REGISTER') {
@@ -48,7 +50,8 @@ function AuthForm() {
                 .catch(() => toast.error('Something went wrong'))
                 .finally(() => setIsLoading(false))
 
-        }
+        };
+
         if (variant == 'LOGIN') {
             //
             signIn('credentials', {
@@ -57,11 +60,12 @@ function AuthForm() {
             }).then((callback) => {
                 if (callback?.error) {
                     toast.error('Invalid creadentials')
-                }
+                };
+
                 if (callback?.ok && !callback?.error) {
                     toast.success('Logged in!')
-                    router.push('users')
-                }
+                    router.push('/users')
+                };
             })
                 .finally(() => setIsLoading(false));
 
