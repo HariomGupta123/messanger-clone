@@ -1,9 +1,8 @@
-import { authOptions } from "@/app/libs/auth";
+// src/app/api/auth/[nextauth]/route.ts
 import NextAuth from "next-auth";
- // Import from the new file
+import { authOptions } from "@/app/libs/auth";
 
 const handler = NextAuth(authOptions);
-export { authOptions };
 
-// Export the HTTP methods handled by this route
+// Export only HTTP methods
 export { handler as GET, handler as POST };
