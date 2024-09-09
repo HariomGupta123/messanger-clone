@@ -189,7 +189,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({ data, isOpen, onClose }) 
                                                         text-gray-900
                                                         sm:col-span-2
                                                         ">
-                                                                    <time dataTime={joinedDate}>
+                                                                    <time >
                                                                         {joinedDate}
 
                                                                     </time>
