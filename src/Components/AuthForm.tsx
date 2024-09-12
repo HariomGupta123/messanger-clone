@@ -91,7 +91,7 @@ function AuthForm() {
             .finally(() => setIsLoading(false));
     }
     return (
-        <div className='mt-8 sm:mx-auto ms:w-full ms:max-w-md w-[500px]'>
+        <div className='pt-5 sm:mx-auto ms:w-full ms:max-w-md w-[400px]'>
 
             <div className='bg-white px-4  py-8 shadow sm:rounded-lg sm:px-10'>
                 <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
