@@ -6,7 +6,7 @@ import { pusherServer } from "@/app/libs/pusher";
 export async function POST(request: Request) {
     try {
         const currentUser = await getCurrentUser();
-
+          console.log("session login",currentUser?.email)
         const body = await request.json();
 
         const { userId, isGroup, members, name } = body
@@ -24,10 +24,7 @@ export async function POST(request: Request) {
                     isGroup,
                     name,
                     users: {
-                        connect: [...members.map((member: { value: string }) => ({ id: member.value }))
-                            , {
-                            id: currentUser.id
-                        }
+                        connect: [...members.map((member: { value: string }) => ({ id: member.value })),
                         ]
                     }
                 },
